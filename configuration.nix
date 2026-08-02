@@ -20,6 +20,7 @@
       ./zsh.nix
       ./tmux.nix
       ./vim.nix
+      ./neovim.nix
       ./kitty.nix
       ./hjem.nix
       ./acme.nix
