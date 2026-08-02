@@ -18,6 +18,8 @@
       ./sudo.nix
       ./git.nix
       ./zsh.nix
+      ./tmux.nix
+      ./vim.nix
       ./kitty.nix
       ./hjem.nix
       ./acme.nix
@@ -29,14 +31,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-    tmux
-  ];
 
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
