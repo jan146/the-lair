@@ -7,6 +7,7 @@ let
   packer = builtins.fetchGit {
     url = "https://github.com/wbthomason/packer.nvim";
     rev = "ea0cc3c59f67c440c5ff0bbe4fb9420f4350b9a3";
+    shallow = true;
   };
   homeDir = config.users.users."${config.username}".home;
 in
