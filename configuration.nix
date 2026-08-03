@@ -22,6 +22,7 @@
       ./tmux.nix
       ./vim.nix
       ./neovim.nix
+      ./podman.nix
       ./kitty.nix
       ./hjem.nix
       ./acme.nix
