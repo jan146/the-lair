@@ -1,5 +1,7 @@
 { config, pkgs, hjem, inputs, ... }:
 {
+  programs.vim.enable = true;
+  programs.vim.defaultEditor = true;
   environment.systemPackages = with pkgs; [
     vim
   ];
