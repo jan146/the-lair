@@ -21,8 +21,15 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agenix = {
+      url = "github:ryantm/agenix";
+      # optional, not necessary for the module
+      inputs.nixpkgs.follows = "nixpkgs";
+      # optionally choose not to download darwin deps (saves some resources on Linux)
+      inputs.darwin.follows = "";
+    };
   };
-  outputs = inputs@{ self, nixpkgs, hjem, nix-index-database, ... }: {
+  outputs = inputs@{ self, nixpkgs, hjem, nix-index-database, agenix, ... }: {
     nixosConfigurations.venice = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
@@ -32,6 +39,7 @@
         nix-index-database.nixosModules.default
         # optional to also wrap and install comma
         # { programs.nix-index-database.comma.enable = true; }
+        agenix.nixosModules.default
       ];
     };
   };
