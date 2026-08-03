@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
   networking = {
     hostName = config.hostname;
@@ -24,4 +24,8 @@
     # Or disable the firewall altogether.
     firewall.enable = false;
   };
+  environment.systemPackages = with pkgs; [
+    ookla-speedtest
+    wget
+  ];
 }
