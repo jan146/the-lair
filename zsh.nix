@@ -1,10 +1,10 @@
-{ config, pkgs, hjem, ... }:
+{ config, pkgs, hjem, inputs, ... }:
 let
   dotfileSymlinks = {
-    # ".zshrc".source = config.dotfiles + "/.zshrc";
-    # ".p10k.zsh".source = config.dotfiles + "/.p10k.zsh";
-    ".aliasrc".source = config.dotfiles + "/.aliasrc";
-    ".toolsrc".source = config.dotfiles + "/.toolsrc";
+    # ".zshrc".source = inputs.dotfiles + "/.zshrc";
+    # ".p10k.zsh".source = inputs.dotfiles + "/.p10k.zsh";
+    ".aliasrc".source = inputs.dotfiles + "/.aliasrc";
+    ".toolsrc".source = inputs.dotfiles + "/.toolsrc";
   };
   homeDir = config.users.users."${config.username}".home;
 in

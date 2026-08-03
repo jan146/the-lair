@@ -5,8 +5,12 @@
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dotfiles = {
+      url = "github:jan146/dotfiles";
+      flake = false;
+    };
   };
-  outputs = inputs@{ self, nixpkgs, hjem }: {
+  outputs = inputs@{ self, nixpkgs, hjem, dotfiles }: {
     nixosConfigurations.venice = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };

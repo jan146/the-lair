@@ -1,4 +1,4 @@
-{ config, pkgs, hjem, ... }:
+{ config, pkgs, hjem, inputs, ... }:
 {
   environment.systemPackages = with pkgs; [
     kitty
@@ -8,6 +8,6 @@
     nerd-fonts.jetbrains-mono
   ];
   hjem.users."${config.username}".files = {
-    ".config/kitty/kitty.conf".source = config.dotfiles + "/.config/kitty/kitty.conf";
+    ".config/kitty/kitty.conf".source = inputs.dotfiles + "/.config/kitty/kitty.conf";
   };
 }
