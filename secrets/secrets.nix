@@ -6,4 +6,5 @@ let
   systems = [ system1 ];
 in
 {
+  "docmostEnv.age".publicKeys = [ user1 system1 ];
 }

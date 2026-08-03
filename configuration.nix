@@ -27,6 +27,7 @@
       ./hjem.nix
       ./acme.nix
       ./murmur.nix
+      ./docmost.nix
     ];
 
   # Use latest kernel
