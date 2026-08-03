@@ -52,11 +52,45 @@
         "type": "github"
       }
     },
+    "nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1785708056,
+        "narHash": "sha256-BK0HUc/g8Nk2p91kFXLdDXL66SdzgciHVGyXntQ5NH0=",
+        "owner": "jan146",
+        "repo": "nvim",
+        "rev": "d0789be7ba21e9987b2e1021964111221640f111",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jan146",
+        "repo": "nvim",
+        "type": "github"
+      }
+    },
+    "packer": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1692903942,
+        "narHash": "sha256-fLM+ptjMd1YNoJQEI0vvr4sjaay7dfpaGhvWUy91d1M=",
+        "owner": "wbthomason",
+        "repo": "packer.nvim",
+        "rev": "ea0cc3c59f67c440c5ff0bbe4fb9420f4350b9a3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "wbthomason",
+        "repo": "packer.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "dotfiles": "dotfiles",
         "hjem": "hjem",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "nvim": "nvim",
+        "packer": "packer"
       }
     }
   },

@@ -9,8 +9,16 @@
       url = "github:jan146/dotfiles";
       flake = false;
     };
+    nvim = {
+      url = "github:jan146/nvim";
+      flake = false;
+    };
+    packer = {
+      url = "github:wbthomason/packer.nvim";
+      flake = false;
+    };
   };
-  outputs = inputs@{ self, nixpkgs, hjem, dotfiles }: {
+  outputs = inputs@{ self, nixpkgs, hjem, ... }: {
     nixosConfigurations.venice = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
