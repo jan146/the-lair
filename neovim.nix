@@ -9,6 +9,7 @@ in
 	unzip
 	nodejs
 	python3
+	cargo # For nil language server
   ];
   hjem.users.${config.username}.files = {
     ".config/nvim".source = inputs.nvim;
