@@ -3,6 +3,18 @@ let
   domainName = config.domainName;
 in
 {
+  age.secrets = {
+    porkbunApiKey = {
+      file = ./secrets/porkbunApiKey.age;
+      owner = config.username;
+      group = "users";
+    };
+    porkbunSecretApiKey = {
+      file = ./secrets/porkbunSecretApiKey.age;
+      owner = config.username;
+      group = "users";
+    };
+  };
   security.acme = {
     acceptTerms = true;
     defaults.email = "admin@${domainName}";
@@ -14,8 +26,8 @@ in
       ];
       dnsProvider = "porkbun";
       credentialFiles = {
-        "PORKBUN_API_KEY_FILE" = "/etc/porkbun/PORKBUN_API_KEY_FILE";
-        "PORKBUN_SECRET_API_KEY_FILE" = "/etc/porkbun/PORKBUN_SECRET_API_KEY_FILE";
+        "PORKBUN_API_KEY_FILE" = config.age.secrets.porkbunApiKey.path;
+        "PORKBUN_SECRET_API_KEY_FILE" = config.age.secrets.porkbunSecretApiKey.path;
       };
       reloadServices = [
         "murmur"
