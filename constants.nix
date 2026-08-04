@@ -10,10 +10,14 @@
     domainName = mkOption {
       type = types.str;
     };
+    hddDir = mkOption {
+      type = types.str;
+    };
   };
   config = {
     username = "jan";
     hostname = "venice";
     domainName = "kmet.dev";
+    hddDir = "/mnt/hdd";
   };
 }
