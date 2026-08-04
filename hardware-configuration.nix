@@ -13,10 +13,16 @@
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/998e17bb-3ce4-4bd6-9645-ce958ab43d75";
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-uuid/998e17bb-3ce4-4bd6-9645-ce958ab43d75";
       fsType = "ext4";
     };
+    "/mnt/hdd" = {
+      device = "/dev/disk/by-uuid/309240e0-b7f0-4f00-9a49-4c928161cc26";
+      fsType = "ext4";
+    };
+  };
 
   swapDevices = [ ];
 
