@@ -3,6 +3,7 @@ let
   mediaDir = "${config.hddDir}/media";
   jellyfinDir = "${mediaDir}/jellyfin";
   sonarrDir = "${mediaDir}/sonarr";
+  radarrDir = "${mediaDir}/radarr";
 in
 {
   # Media group for accessing mediaDir (TODO: cleaner solution)
@@ -10,6 +11,7 @@ in
   users.users = {
     jellyfin.extraGroups = [ "media" ];
     sonarr.extraGroups = [ "media" ];
+    radarr.extraGroups = [ "media" ];
     "${config.username}".extraGroups = [ "media" ];
   };
 
@@ -48,6 +50,22 @@ in
       forceSSL = true;
       locations."/" = {
         proxyPass = "http://127.0.0.1:8989";
+      };
+    };
+  };
+
+  # Radarr
+  services.radarr = {
+    enable = true;
+    dataDir = "${radarrDir}/data";
+    settings.log.analyticsEnabled = false;
+  };
+  services.nginx = {
+    virtualHosts."radarr.${config.domainName}" =  {
+      enableACME = true;
+      forceSSL = true;
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:7878";
       };
     };
   };
