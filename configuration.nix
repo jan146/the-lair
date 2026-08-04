@@ -27,6 +27,7 @@
       ./kitty.nix
       ./hjem.nix
       ./acme.nix
+      ./nginx.nix
       ./murmur.nix
       ./docmost.nix
     ];
