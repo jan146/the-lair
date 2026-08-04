@@ -8,7 +8,7 @@ in
     home = "/home/${username}";
     uid = 1000;
     description = username;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "wheel" ];
     packages = [];
   };
   users.groups."users" = {
