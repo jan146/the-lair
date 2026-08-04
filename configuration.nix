@@ -30,6 +30,7 @@
       ./nginx.nix
       ./murmur.nix
       ./docmost.nix
+      ./media-server.nix
     ];
 
   # Use latest kernel
