@@ -9,4 +9,5 @@ in
   "docmostEnv.age".publicKeys = [ user1 system1 ];
   "porkbunApiKey.age".publicKeys = [ user1 system1 ];
   "porkbunSecretApiKey.age".publicKeys = [ user1 system1 ];
+  "ddnsUpdaterConfig.age".publicKeys = [ user1 system1 ];
 }

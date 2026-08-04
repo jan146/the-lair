@@ -15,6 +15,7 @@
       ./locale.nix
       ./desktop.nix
       ./openssh.nix
+      ./ddns-updater.nix
       ./agenix.nix
       ./sudo.nix
       ./git.nix
