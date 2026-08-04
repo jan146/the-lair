@@ -2,12 +2,14 @@
 let
   mediaDir = "${config.hddDir}/media";
   jellyfinDir = "${mediaDir}/jellyfin";
+  sonarrDir = "${mediaDir}/sonarr";
 in
 {
   # Media group for accessing mediaDir (TODO: cleaner solution)
   users.groups.media = {};
   users.users = {
     jellyfin.extraGroups = [ "media" ];
+    sonarr.extraGroups = [ "media" ];
     "${config.username}".extraGroups = [ "media" ];
   };
 
@@ -30,6 +32,22 @@ in
       forceSSL = true;
       locations."/" = {
         proxyPass = "http://127.0.0.1:8096";
+      };
+    };
+  };
+
+  # Sonarr
+  services.sonarr = {
+    enable = true;
+    dataDir = "${sonarrDir}/data";
+    settings.log.analyticsEnabled = false;
+  };
+  services.nginx = {
+    virtualHosts."sonarr.${config.domainName}" =  {
+      enableACME = true;
+      forceSSL = true;
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:8989";
       };
     };
   };
