@@ -32,6 +32,7 @@
       ./docmost.nix
       ./media-server.nix
       ./qbittorrent.nix
+      ./homarr.nix
     ];
 
   # Use latest kernel
