@@ -1,10 +1,9 @@
 { config, pkgs, ... }:
 let
-  mediaDir = "${config.hddDir}/media";
   mediaGroup = "media";
-  jellyfinDir = "${mediaDir}/jellyfin";
-  sonarrDir = "${mediaDir}/sonarr";
-  radarrDir = "${mediaDir}/radarr";
+  jellyfinDir = "${config.mediaDir}/jellyfin";
+  sonarrDir = "${config.mediaDir}/sonarr";
+  radarrDir = "${config.mediaDir}/radarr";
 in
 {
   # Media group for accessing mediaDir (TODO: cleaner solution)
