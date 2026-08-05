@@ -5,6 +5,7 @@ let
   sonarrDir = "${config.mediaDir}/sonarr";
   radarrDir = "${config.mediaDir}/radarr";
   jackettDir = "${config.mediaDir}/jackett";
+  bazarrDir = "${config.mediaDir}/bazarr";
 in
 {
   # Media group for accessing mediaDir (TODO: cleaner solution)
@@ -13,6 +14,7 @@ in
     "radarr"
     "sonarr"
     "jackett"
+    "bazarr"
     "${config.username}"
   ];
   services.qbittorrent.group = mediaGroup;
@@ -84,6 +86,21 @@ in
       forceSSL = true;
       locations."/" = {
         proxyPass = "http://127.0.0.1:9117";
+      };
+    };
+  };
+
+  # Bazarr
+  services.bazarr = {
+    enable = true;
+    dataDir = "${bazarrDir}/data";
+  };
+  services.nginx = {
+    virtualHosts."bazarr.${config.domainName}" =  {
+      enableACME = true;
+      forceSSL = true;
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:6767";
       };
     };
   };
