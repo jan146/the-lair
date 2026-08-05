@@ -13,6 +13,7 @@ in
     "sonarr"
     "${config.username}"
   ];
+  services.qbittorrent.group = mediaGroup;
 
   # Jellyfin
   services.jellyfin = {

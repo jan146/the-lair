@@ -31,6 +31,7 @@
       ./murmur.nix
       ./docmost.nix
       ./media-server.nix
+      ./qbittorrent.nix
     ];
 
   # Use latest kernel
