@@ -1,19 +1,19 @@
 { config, pkgs, ... }:
 let
   mediaDir = "${config.hddDir}/media";
+  mediaGroup = "media";
   jellyfinDir = "${mediaDir}/jellyfin";
   sonarrDir = "${mediaDir}/sonarr";
   radarrDir = "${mediaDir}/radarr";
 in
 {
   # Media group for accessing mediaDir (TODO: cleaner solution)
-  users.groups.media = {};
-  users.users = {
-    jellyfin.extraGroups = [ "media" ];
-    sonarr.extraGroups = [ "media" ];
-    radarr.extraGroups = [ "media" ];
-    "${config.username}".extraGroups = [ "media" ];
-  };
+  users.groups."${mediaGroup}".members = [
+    "jellyfin"
+    "radarr"
+    "sonarr"
+    "${config.username}"
+  ];
 
   # Jellyfin
   services.jellyfin = {
