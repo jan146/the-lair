@@ -4,6 +4,7 @@ let
   jellyfinDir = "${config.mediaDir}/jellyfin";
   sonarrDir = "${config.mediaDir}/sonarr";
   radarrDir = "${config.mediaDir}/radarr";
+  jackettDir = "${config.mediaDir}/jackett";
 in
 {
   # Media group for accessing mediaDir (TODO: cleaner solution)
@@ -11,6 +12,7 @@ in
     "jellyfin"
     "radarr"
     "sonarr"
+    "jackett"
     "${config.username}"
   ];
   services.qbittorrent.group = mediaGroup;
@@ -66,6 +68,22 @@ in
       forceSSL = true;
       locations."/" = {
         proxyPass = "http://127.0.0.1:7878";
+      };
+    };
+  };
+
+  # Jackett
+  services.jackett = {
+    enable = true;
+    dataDir = "${jackettDir}/data";
+  };
+  services.flaresolverr.enable = true; # Bypass Cloudflare (eyeroll)
+  services.nginx = {
+    virtualHosts."jackett.${config.domainName}" =  {
+      enableACME = true;
+      forceSSL = true;
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:9117";
       };
     };
   };
