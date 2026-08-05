@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 let
   mediaGroup = "media";
   jellyfinDir = "${config.mediaDir}/jellyfin";
@@ -6,6 +6,7 @@ let
   radarrDir = "${config.mediaDir}/radarr";
   jackettDir = "${config.mediaDir}/jackett";
   bazarrDir = "${config.mediaDir}/bazarr";
+  seerrDir = "${config.mediaDir}/seerr";
 in
 {
   # Media group for accessing mediaDir (TODO: cleaner solution)
@@ -15,6 +16,7 @@ in
     "sonarr"
     "jackett"
     "bazarr"
+    "seerr"
     "${config.username}"
   ];
   services.qbittorrent.group = mediaGroup;
@@ -101,6 +103,32 @@ in
       forceSSL = true;
       locations."/" = {
         proxyPass = "http://127.0.0.1:6767";
+      };
+    };
+  };
+
+  # Seerr
+  services.seerr = {
+    enable = true;
+    configDir = "${seerrDir}/config";
+  };
+  users.users."seerr" = {
+    isSystemUser = true;
+    group = "seerr";
+  };
+  users.groups."seerr" = {};
+  systemd.services.seerr.serviceConfig = {
+    DynamicUser = lib.mkForce false;
+    User = "seerr";
+    Group = "media";
+    ReadWritePaths = [ seerrDir ];
+  };
+  services.nginx = {
+    virtualHosts."seerr.${config.domainName}" =  {
+      enableACME = true;
+      forceSSL = true;
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:5055";
       };
     };
   };
