@@ -11,7 +11,7 @@
         GlobalUPSpeedLimit = (80 * 1000 / 8); # 80 Mb = 10,000 KB
         GlobalDLSpeedLimit = (500 * 1000 / 8);  # 500 Mb = 62,500 KB
         GlobalMaxSeedingMinutes = 1440;
-        ShareLimitAction = "RemoveWithContent";
+        ShareLimitAction = "Stop";
         AddTrackersFromURLEnabled = true;
         AdditionalTrackersURL = "https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best.txt";
       };
