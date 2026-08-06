@@ -4,6 +4,7 @@ let
   jellyfinDir = "${config.mediaDir}/jellyfin";
   sonarrDir = "${config.mediaDir}/sonarr";
   radarrDir = "${config.mediaDir}/radarr";
+  lidarr = "${config.mediaDir}/lidarr";
   jackettDir = "${config.mediaDir}/jackett";
   bazarrDir = "${config.mediaDir}/bazarr";
   seerrDir = "${config.mediaDir}/seerr";
@@ -14,12 +15,22 @@ in
     "jellyfin"
     "radarr"
     "sonarr"
+    "lidarr"
     "jackett"
     "bazarr"
     "seerr"
     "${config.username}"
   ];
   services.qbittorrent.group = mediaGroup;
+
+  environment.systemPackages = with pkgs; [
+    jellyfin
+    jellyfin-web
+    jellyfin-ffmpeg
+    # Packages for handling music media
+    shntool
+    flac
+  ];
 
   # Jellyfin
   services.jellyfin = {
@@ -29,11 +40,6 @@ in
     dataDir = "${jellyfinDir}/data";
     logDir = "${jellyfinDir}/log";
   };
-  environment.systemPackages = [
-    pkgs.jellyfin
-    pkgs.jellyfin-web
-    pkgs.jellyfin-ffmpeg
-  ];
   services.nginx = {
     virtualHosts."jellyfin.${config.domainName}" =  {
       enableACME = true;
@@ -72,6 +78,22 @@ in
       forceSSL = true;
       locations."/" = {
         proxyPass = "http://127.0.0.1:7878";
+      };
+    };
+  };
+
+  # Lidarr
+  services.lidarr = {
+    enable = true;
+    dataDir = "${lidarr}/data";
+    settings.log.analyticsEnabled = false;
+  };
+  services.nginx = {
+    virtualHosts."lidarr.${config.domainName}" =  {
+      enableACME = true;
+      forceSSL = true;
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:8686";
       };
     };
   };
