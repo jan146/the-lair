@@ -33,6 +33,7 @@
       ./media-server.nix
       ./qbittorrent.nix
       ./homarr.nix
+      ./fmhy.nix
     ];
 
   # Use latest kernel
