@@ -16,7 +16,6 @@ in
     owner = user;
     group = "users";
   };
-  virtualisation.oci-containers.backend = "podman";
   virtualisation.oci-containers.containers = {
     docmost = modifyConfig {
       image = "docker.io/docmost/docmost:latest";
