@@ -1,4 +1,7 @@
 { config, ... }:
+let
+  withBlocklist = import ./nginx-blocklist.nix;
+in
 {
   services.qbittorrent = {
     enable = true;
@@ -18,7 +21,7 @@
     };
   };
   services.nginx = {
-    virtualHosts."qbittorrent.${config.domainName}" =  {
+    virtualHosts."qbittorrent.${config.domainName}" = withBlocklist {
       enableACME = true;
       forceSSL = true;
       locations."/" = {

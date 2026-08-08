@@ -1,5 +1,8 @@
 { config, ... }:
 let
+  withBlocklist = import ./nginx-blocklist.nix;
+in
+let
   user = config.username;
   modifyConfig = contConf: contConf // {
     podman.user = user;
@@ -66,7 +69,7 @@ in
     };
   };
   services.nginx = {
-    virtualHosts."docmost.${config.domainName}" =  {
+    virtualHosts."docmost.${config.domainName}" = withBlocklist {
       enableACME = true;
       forceSSL = true;
       locations."/" = {

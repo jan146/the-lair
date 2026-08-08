@@ -8,6 +8,7 @@ let
   jackettDir = "${config.mediaDir}/jackett";
   bazarrDir = "${config.mediaDir}/bazarr";
   seerrDir = "${config.mediaDir}/seerr";
+  withBlocklist = import ./nginx-blocklist.nix;
 in
 {
   # Media group for accessing mediaDir (TODO: cleaner solution)
@@ -41,7 +42,7 @@ in
     logDir = "${jellyfinDir}/log";
   };
   services.nginx = {
-    virtualHosts."jellyfin.${config.domainName}" =  {
+    virtualHosts."jellyfin.${config.domainName}" = withBlocklist {
       enableACME = true;
       forceSSL = true;
       locations."/" = {
@@ -57,7 +58,7 @@ in
     settings.log.analyticsEnabled = false;
   };
   services.nginx = {
-    virtualHosts."sonarr.${config.domainName}" =  {
+    virtualHosts."sonarr.${config.domainName}" = withBlocklist {
       enableACME = true;
       forceSSL = true;
       locations."/" = {
@@ -73,7 +74,7 @@ in
     settings.log.analyticsEnabled = false;
   };
   services.nginx = {
-    virtualHosts."radarr.${config.domainName}" =  {
+    virtualHosts."radarr.${config.domainName}" = withBlocklist {
       enableACME = true;
       forceSSL = true;
       locations."/" = {
@@ -89,7 +90,7 @@ in
     settings.log.analyticsEnabled = false;
   };
   services.nginx = {
-    virtualHosts."lidarr.${config.domainName}" =  {
+    virtualHosts."lidarr.${config.domainName}" = withBlocklist {
       enableACME = true;
       forceSSL = true;
       locations."/" = {
@@ -105,7 +106,7 @@ in
   };
   services.flaresolverr.enable = true; # Bypass Cloudflare (eyeroll)
   services.nginx = {
-    virtualHosts."jackett.${config.domainName}" =  {
+    virtualHosts."jackett.${config.domainName}" = withBlocklist {
       enableACME = true;
       forceSSL = true;
       locations."/" = {
@@ -120,7 +121,7 @@ in
     dataDir = "${bazarrDir}/data";
   };
   services.nginx = {
-    virtualHosts."bazarr.${config.domainName}" =  {
+    virtualHosts."bazarr.${config.domainName}" = withBlocklist {
       enableACME = true;
       forceSSL = true;
       locations."/" = {
@@ -146,7 +147,7 @@ in
     ReadWritePaths = [ seerrDir ];
   };
   services.nginx = {
-    virtualHosts."seerr.${config.domainName}" =  {
+    virtualHosts."seerr.${config.domainName}" = withBlocklist {
       enableACME = true;
       forceSSL = true;
       locations."/" = {

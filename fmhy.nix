@@ -1,4 +1,7 @@
 { config, ... }:
+let
+  withBlocklist = import ./nginx-blocklist.nix;
+in
 {
   virtualisation.oci-containers.containers.fmhy = {
     image = "ghcr.io/jan146/fmhy:latest";
@@ -7,7 +10,7 @@
     ];
   };
   services.nginx = {
-    virtualHosts."fmhy.${config.domainName}" =  {
+    virtualHosts."fmhy.${config.domainName}" = withBlocklist {
       enableACME = true;
       forceSSL = true;
       locations."/" = {

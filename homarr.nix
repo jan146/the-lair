@@ -1,4 +1,7 @@
 { config, ... }:
+let
+  withBlocklist = import ./nginx-blocklist.nix;
+in
 {
   age.secrets.homarrEnv = {
     file = ./secrets/homarrEnv.age;
@@ -20,7 +23,7 @@
     ];
   };
   services.nginx = {
-    virtualHosts."homarr.${config.domainName}" =  {
+    virtualHosts."homarr.${config.domainName}" = withBlocklist {
       enableACME = true;
       forceSSL = true;
       locations."/" = {
