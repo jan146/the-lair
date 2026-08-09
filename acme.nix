@@ -31,7 +31,7 @@ in
       };
       reloadServices = [
         "murmur"
-        # "nginx"
+        "nginx"
       ];
       postRun = ''
         # set permission on dir
