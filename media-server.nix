@@ -40,6 +40,7 @@ in
     configDir = "${jellyfinDir}/config";
     dataDir = "${jellyfinDir}/data";
     logDir = "${jellyfinDir}/log";
+    group = mediaGroup;
   };
   services.nginx = {
     virtualHosts."jellyfin.${config.domainName}" = withBlocklist {
@@ -56,6 +57,7 @@ in
     enable = true;
     dataDir = "${sonarrDir}/data";
     settings.log.analyticsEnabled = false;
+    group = mediaGroup;
   };
   services.nginx = {
     virtualHosts."sonarr.${config.domainName}" = withBlocklist {
@@ -72,6 +74,7 @@ in
     enable = true;
     dataDir = "${radarrDir}/data";
     settings.log.analyticsEnabled = false;
+    group = mediaGroup;
   };
   services.nginx = {
     virtualHosts."radarr.${config.domainName}" = withBlocklist {
@@ -88,6 +91,7 @@ in
     enable = true;
     dataDir = "${lidarr}/data";
     settings.log.analyticsEnabled = false;
+    group = mediaGroup;
   };
   services.nginx = {
     virtualHosts."lidarr.${config.domainName}" = withBlocklist {
@@ -103,6 +107,7 @@ in
   services.jackett = {
     enable = true;
     dataDir = "${jackettDir}/data";
+    group = mediaGroup;
   };
   services.flaresolverr.enable = true; # Bypass Cloudflare (eyeroll)
   services.nginx = {
@@ -119,6 +124,7 @@ in
   services.bazarr = {
     enable = true;
     dataDir = "${bazarrDir}/data";
+    group = mediaGroup;
   };
   services.nginx = {
     virtualHosts."bazarr.${config.domainName}" = withBlocklist {
