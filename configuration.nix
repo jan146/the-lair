@@ -34,6 +34,7 @@
       ./qbittorrent.nix
       ./homarr.nix
       ./fmhy.nix
+      ./navidrome.nix
     ];
 
   # Use latest kernel
