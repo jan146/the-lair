@@ -35,6 +35,7 @@
       ./homarr.nix
       ./fmhy.nix
       ./navidrome.nix
+      ./invidious.nix
     ];
 
   # Use latest kernel

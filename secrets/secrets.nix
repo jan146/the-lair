@@ -11,4 +11,5 @@ in
   "porkbunSecretApiKey.age".publicKeys = [ user1 system1 ];
   "ddnsUpdaterConfig.age".publicKeys = [ user1 system1 ];
   "homarrEnv.age".publicKeys = [ user1 system1 ];
+  "invidiousBasicAuth.age".publicKeys = [ user1 system1 ];
 }
