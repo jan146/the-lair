@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 let
   withBlocklist = import ./nginx-blocklist.nix;
 in
@@ -10,6 +10,7 @@ in
       MusicFolder = "${config.mediaDir}/music";
       Address = "0.0.0.0";
     };
+    plugins = [ pkgs.navidromePlugins.discord-rich-presence ];
   };
   services.nginx = {
     virtualHosts."navidrome.${config.domainName}" = withBlocklist {
