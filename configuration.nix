@@ -46,6 +46,8 @@
   environment.systemPackages = with pkgs; [
     fastfetch
     tree
+    htop
+    btop
   ];
 
   # Enable flakes
