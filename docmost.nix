@@ -45,6 +45,7 @@ in
         POSTGRES_DB = "docmost";
         POSTGRES_USER = "docmost";
       };
+      cmd = [ "-p" "5433" ];
       environmentFiles = [
         # POSTGRES_PASSWORD
         config.age.secrets.docmostEnv.path
