@@ -35,10 +35,16 @@ in
     database.createLocally = true;
     extraSettingsFile = config.age.secrets.invidiousExtraSettings.path;
     settings = {
-      registration_enabled = true;
+      registration_enabled = false;
       login_enabled = true;
+      popular_enabled = false;
+      statistics_enabled = false;
       use_innertube_for_captions = true;
-      default_user_preferences.autoplay = false;
+      default_user_preferences = {
+        autoplay = false;
+        feed_menu = ["Trending" "Subscriptions" "Playlists"];
+        default_home = "Trending";
+      };
       admins = [ "admin" config.username ];
       invidious_companion = [
         {
