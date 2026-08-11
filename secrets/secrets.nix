@@ -12,4 +12,6 @@ in
   "ddnsUpdaterConfig.age".publicKeys = [ user1 system1 ];
   "homarrEnv.age".publicKeys = [ user1 system1 ];
   "invidiousBasicAuth.age".publicKeys = [ user1 system1 ];
+  "invidiousCompanionEnv.age".publicKeys = [ user1 system1 ];
+  "invidiousExtraSettings.age".publicKeys = [ user1 system1 ];
 }

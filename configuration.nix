@@ -49,6 +49,7 @@
     tree
     htop
     btop
+    pwgen
   ];
 
   # Enable flakes
