@@ -5,7 +5,6 @@ in
 let
   user = config.username;
   modifyConfig = contConf: contConf // {
-    podman.user = user;
     autoStart = true;
     privileged = false;
     extraOptions = [
