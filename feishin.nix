@@ -1,13 +1,6 @@
 { config, ... }:
 let
   withBlocklist = import ./nginx-blocklist.nix;
-  vhostConfig = withBlocklist {
-    enableACME = true;
-    forceSSL = true;
-    locations."/" = {
-      proxyPass = "http://127.0.0.1:9180";
-    };
-  };
 in
 {
   virtualisation.oci-containers.containers.feishin = {
@@ -24,7 +17,13 @@ in
     ];
   };
   services.nginx = {
-    virtualHosts."feishin.${config.domainName}" = vhostConfig;
-    virtualHosts."music.${config.domainName}" = vhostConfig;
+    virtualHosts."feishin.${config.domainName}" = withBlocklist {
+      enableACME = true;
+      forceSSL = true;
+      serverAliases = [ "music.${config.domainName}" ];
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:9180";
+      };
+    };
   };
 }

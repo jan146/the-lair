@@ -72,6 +72,7 @@ in
     virtualHosts."docmost.${config.domainName}" = withBlocklist {
       enableACME = true;
       forceSSL = true;
+      serverAliases = [ "docs.${config.domainName}" ];
       locations."/" = {
         proxyPass = "http://127.0.0.1:3000";
         proxyWebsockets = true;

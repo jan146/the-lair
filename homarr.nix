@@ -26,6 +26,7 @@ in
     virtualHosts."homarr.${config.domainName}" = withBlocklist {
       enableACME = true;
       forceSSL = true;
+      serverAliases = [ "home.${config.domainName}" ];
       locations."/" = {
         proxyPass = "http://127.0.0.1:7575";
         proxyWebsockets = true;

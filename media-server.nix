@@ -46,6 +46,7 @@ in
     virtualHosts."jellyfin.${config.domainName}" = withBlocklist {
       enableACME = true;
       forceSSL = true;
+      serverAliases = [ "media.${config.domainName}" ];
       locations."/" = {
         proxyPass = "http://127.0.0.1:8096";
       };

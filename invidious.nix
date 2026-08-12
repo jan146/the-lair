@@ -73,6 +73,7 @@ in
   };
 
   services.nginx.virtualHosts."${fqdn}" = withBlocklist {
+    serverAliases = [ "youtube.${config.domainName}" ];
     locations."/companion" = {
       proxyPass = "http://127.0.0.1:8282";
     };
