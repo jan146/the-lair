@@ -36,6 +36,7 @@
       ./fmhy.nix
       ./navidrome.nix
       ./invidious.nix
+      ./feishin.nix
     ];
 
   # Use latest kernel
