@@ -37,6 +37,7 @@
       ./navidrome.nix
       ./invidious.nix
       ./feishin.nix
+      ./wireguard.nix
     ];
 
   # Use latest kernel

@@ -14,4 +14,5 @@ in
   "invidiousBasicAuth.age".publicKeys = [ user1 system1 ];
   "invidiousCompanionEnv.age".publicKeys = [ user1 system1 ];
   "invidiousExtraSettings.age".publicKeys = [ user1 system1 ];
+  "wgKey.age".publicKeys = [ user1 system1 ];
 }
