@@ -12,6 +12,7 @@ in
     };
     plugins = [ pkgs.navidromePlugins.discord-rich-presence ];
   };
+  systemd.services.navidrome.serviceConfig.Environment = "ND_BASEURL=https://navidrome.${config.domainName}";
   services.nginx = {
     virtualHosts."navidrome.${config.domainName}" = withBlocklist {
       enableACME = true;
