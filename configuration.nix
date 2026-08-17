@@ -38,6 +38,7 @@
       ./invidious.nix
       ./feishin.nix
       ./wireguard.nix
+      ./pi-hole.nix
     ];
 
   # Use latest kernel
