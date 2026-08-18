@@ -24,12 +24,8 @@ in
       settings = {
         # misc.readOnly = false;
         dns = {
-          domain = config.domainName;
           domainNeeded = true;
           interface = config.networking.defaultGateway.interface;
-          hosts = [
-            "192.168.0.238   venice"
-          ];
           upstreams = ["9.9.9.9" "1.1.1.1" "8.8.8.8"];
           queryLogging = false;
         };
