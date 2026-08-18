@@ -15,4 +15,5 @@ in
   "invidiousCompanionEnv.age".publicKeys = [ user1 system1 ];
   "invidiousExtraSettings.age".publicKeys = [ user1 system1 ];
   "wgKey.age".publicKeys = [ user1 system1 ];
+  "nextcloudPass.age".publicKeys = [ user1 system1 ];
 }
