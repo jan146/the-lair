@@ -9,13 +9,18 @@ in
     owner = config.services.nginx.user;
     group = config.services.nginx.group;
   };
-  age.secrets.invidiousExtraSettings = {
-    file = ./secrets/invidiousExtraSettings.age;
+  age.secrets.invidiousPgPass = {
+    file = ./secrets/invidiousPgPass.age;
     owner = "invidious";
     group = "invidious";
   };
-  age.secrets.invidiousCompanionEnv = {
-    file = ./secrets/invidiousCompanionEnv.age;
+  age.secrets.invidiousEnv = {
+    file = ./secrets/invidiousEnv.age;
+    owner = "invidious";
+    group = "invidious";
+  };
+  age.secrets.invidiousExtraSettings = {
+    file = ./secrets/invidiousExtraSettings.age;
     owner = "invidious";
     group = "invidious";
   };
@@ -32,7 +37,12 @@ in
     port = 3001;
     nginx.enable = true;
     http3-ytproxy.enable = true;
-    database.createLocally = true;
+    database = {
+      createLocally = false;
+      host = "localhost";
+      port = 5434;
+      passwordFile = config.age.secrets.invidiousPgPass.path;
+    };
     extraSettingsFile = config.age.secrets.invidiousExtraSettings.path;
     settings = {
       registration_enabled = false;
@@ -55,6 +65,27 @@ in
     };
   };
 
+  # Postgres DB
+  virtualisation.oci-containers.containers = {
+    invidious-pg = {
+      image = "docker.io/library/postgres:18";
+      environment = {
+        POSTGRES_DB = "invidious";
+        POSTGRES_USER = "invidious";
+      };
+      ports = [
+        "5434:5432"
+      ];
+      environmentFiles = [
+        # POSTGRES_PASSWORD
+        config.age.secrets.invidiousEnv.path
+      ];
+      volumes = [
+        "invidious-pg:/var/lib/postgresql"
+      ];
+    };
+  };
+
   # Invidious companion
   virtualisation.oci-containers.containers.invidious-companion = {
     image = "quay.io/invidious/invidious-companion:latest";
@@ -62,7 +93,8 @@ in
       "8282:8282"
     ];
     environmentFiles = [
-      config.age.secrets.invidiousCompanionEnv.path
+      # SERVER_SECRET_KEY
+      config.age.secrets.invidiousEnv.path
     ];
     volumes = [
       "companioncache:/var/tmp/youtubei.js:rw"
