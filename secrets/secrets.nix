@@ -17,4 +17,6 @@ in
   "nextcloudPass.age".publicKeys = [ user1 system1 ];
   "invidiousEnv.age".publicKeys = [ user1 system1 ];
   "invidiousPgPass.age".publicKeys = [ user1 system1 ];
+  "searxngEnv.age".publicKeys = [ user1 system1 ];
+  "searxngBasicAuth.age".publicKeys = [ user1 system1 ];
 }

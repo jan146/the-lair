@@ -41,6 +41,7 @@
       ./pi-hole.nix
       ./postgres.nix
       ./nextcloud.nix
+      ./searxng.nix
     ];
 
   # Use latest kernel
