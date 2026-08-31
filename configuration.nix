@@ -39,6 +39,7 @@
       ./feishin.nix
       ./wireguard.nix
       ./pi-hole.nix
+      ./postgres.nix
       ./nextcloud.nix
     ];
 
