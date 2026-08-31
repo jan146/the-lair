@@ -35,6 +35,7 @@ in
     enable = true;
     domain = fqdn;
     port = 3001;
+    address = "0.0.0.0";
     nginx.enable = true;
     http3-ytproxy.enable = true;
     database = {
