@@ -3,9 +3,9 @@
   networking.nat.enable = true;
   networking.nat.externalInterface = config.networking.defaultGateway.interface;
   networking.nat.internalInterfaces = [ "wg0" ];
-  # networking.firewall = {
-  #   allowedUDPPorts = [ 51820 ];
-  # };
+  networking.firewall = {
+    allowedUDPPorts = [ 51820 ];
+  };
 
   age.secrets.wgPrivKey = {
     file = ./secrets/wgKey.age;

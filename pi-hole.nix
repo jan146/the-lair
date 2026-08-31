@@ -7,6 +7,7 @@ in
     pihole-ftl = {
       enable = true;
       # queryLogDeleter.enable = true;
+      openFirewallDNS = true;
       lists = [
         {
           url = "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts";

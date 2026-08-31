@@ -21,8 +21,7 @@
     # Open ports in the firewall.
     # networking.firewall.allowedTCPPorts = [ ... ];
     # networking.firewall.allowedUDPPorts = [ ... ];
-    # Or disable the firewall altogether.
-    firewall.enable = false;
+    firewall.enable = true;
   };
   environment.systemPackages = with pkgs; [
     ookla-speedtest

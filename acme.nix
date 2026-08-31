@@ -46,4 +46,6 @@ in
       '';
     };
   };
+  # for acme plain http challenge
+  networking.firewall.allowedTCPPorts = [ 80 ];
 }

@@ -6,6 +6,7 @@ in
   services.murmur = {
     enable = true;
     port = 64738;
+    openFirewall = true;
     bandwidth = 256000;
     tls = {
       caPath = "${sslCertDir}/chain.pem";
