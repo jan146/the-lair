@@ -56,6 +56,7 @@
     htop
     btop
     pwgen
+    killall
   ];
 
   # Enable flakes
