@@ -2,6 +2,7 @@
 {
   networking = {
     hostName = config.hostname;
+    domain = config.domainName;
     dhcpcd.enable = false;
     interfaces.eth0 = {
       ipv4.addresses = [{

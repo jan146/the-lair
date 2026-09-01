@@ -42,6 +42,7 @@
       ./postgres.nix
       ./nextcloud.nix
       ./searxng.nix
+      ./matrix.nix
     ];
 
   # Use latest kernel

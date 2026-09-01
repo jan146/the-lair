@@ -19,4 +19,5 @@ in
   "invidiousPgPass.age".publicKeys = [ user1 system1 ];
   "searxngEnv.age".publicKeys = [ user1 system1 ];
   "searxngBasicAuth.age".publicKeys = [ user1 system1 ];
+  "matrixSharedSecret.age".publicKeys = [ user1 system1 ];
 }

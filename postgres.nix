@@ -4,7 +4,7 @@ let
 in
 {
   services.postgresql = {
-    enable = false;
+    enable = true;
     dataDir = dataDir;
   };
 }
