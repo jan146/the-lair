@@ -3,6 +3,7 @@ let
   fqdn = "nextcloud.${config.domainName}";
   withBlocklist = import ./nginx-blocklist.nix;
   domainAliases = [ "files.${config.domainName}" ];
+  dataDir = config.hddDir + "/nextcloud";
 in
 {
   age.secrets.adminPass = {
@@ -16,7 +17,7 @@ in
     hostName = fqdn;
     https = true;
     database.createLocally = true;
-    datadir = config.hddDir + "/nextcloud";
+    datadir = dataDir;
     config = {
       adminuser = "admin";
       adminpassFile = config.age.secrets.adminPass.path;
@@ -27,6 +28,7 @@ in
     };
     settings.trusted_domains = ([ config.domainName fqdn ] ++ domainAliases);
   };
+  systemd.tmpfiles.rules = [ "d ${dataDir} 0700 nextcloud nextcloud -" ];
   # services.postgresql.ensureUsers = [ { name = "nextcloud"; } ];
   # services.postgresql.ensureDatabases = [ "nextcloud" ];
   services.nginx.virtualHosts."${fqdn}" = withBlocklist {

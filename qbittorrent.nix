@@ -5,7 +5,7 @@ in
 {
   services.qbittorrent = {
     enable = true;
-    profileDir = "${config.mediaDir}/qbittorrent/profile";
+    profileDir = "${config.hddDir}/qbittorrent/profile";
     serverConfig = {
       LegalNotice.Accepted = true;
       Meta.MigrationVersion = 8; # Needed for RemoveWithContent

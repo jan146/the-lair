@@ -7,4 +7,5 @@ in
     enable = true;
     dataDir = dataDir;
   };
+  systemd.tmpfiles.rules = [ "d ${dataDir} 0700 postgres postgres -" ];
 }

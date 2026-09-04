@@ -12,6 +12,8 @@
       defaultNetwork.settings.dns_enabled = false;
     };
   };
+  # symlink to /etc/containers/storage.conf, ${storage.graphroot}/volumes
+  systemd.tmpfiles.rules = [ "L ${config.hddDir}/container-volumes - - - - /var/lib/containers/storage/volumes" ];
 
   # Useful other development tools
   environment.systemPackages = with pkgs; [

@@ -4,11 +4,12 @@ let
   jellyfinDir = "${config.mediaDir}/jellyfin";
   sonarrDir = "${config.mediaDir}/sonarr";
   radarrDir = "${config.mediaDir}/radarr";
-  lidarr = "${config.mediaDir}/lidarr";
+  lidarrDir = "${config.mediaDir}/lidarr";
   jackettDir = "${config.mediaDir}/jackett";
   bazarrDir = "${config.mediaDir}/bazarr";
   seerrDir = "${config.mediaDir}/seerr";
   withBlocklist = import ./nginx-blocklist.nix;
+  createMediaDirs = mediaDirs: map (dir: "d ${dir} 0775 ${config.username} ${mediaGroup} -") mediaDirs;
 in
 {
   # Media group for accessing mediaDir (TODO: cleaner solution)
@@ -23,6 +24,20 @@ in
     "${config.username}"
   ];
   services.qbittorrent.group = mediaGroup;
+
+  # Create necessary directories
+  systemd.tmpfiles.rules = createMediaDirs (
+    map (subdir: "${config.mediaDir}/${subdir}") [
+      "" "books" "downloads" "dvr" "movies" "music" "other" "tv"
+    ] ++ [
+    jellyfinDir
+    sonarrDir
+    radarrDir
+    lidarrDir
+    jackettDir
+    bazarrDir
+    seerrDir
+  ]);
 
   environment.systemPackages = with pkgs; [
     jellyfin
@@ -90,7 +105,7 @@ in
   # Lidarr
   services.lidarr = {
     enable = true;
-    dataDir = "${lidarr}/data";
+    dataDir = "${lidarrDir}/data";
     settings.log.analyticsEnabled = false;
     group = mediaGroup;
   };
