@@ -25,7 +25,9 @@
   };
   systemd.tmpfiles.rules = [ "d ${config.hddDir} 0755 root root -" ];
 
-  swapDevices = [ ];
+  swapDevices = [{
+    device = "/dev/disk/by-uuid/4f4a8d33-9519-4068-9e4f-6d73d2c9a6db";
+  }];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }
