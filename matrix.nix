@@ -68,7 +68,6 @@ in
   # nix-shell -p matrix-synapse
   # register_new_matrix_user -k $MATRIX_SHARED_SECRET http://localhost:8008
 
-
   # Element client
   services.nginx.virtualHosts."element.${fqdn}" = withBlocklist {
     enableACME = true;

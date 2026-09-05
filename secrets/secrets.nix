@@ -1,23 +1,27 @@
 let
-  user1 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGgosVEivuizfByPTS8O/4CIX2+1P2HwDN1/7u3Ottrd";
-  users = [ user1 ];
-
-  system1 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGg8BX54c5bJiIonkkvBqB9w4iB3ZZCmnISqvrbFA5rd";
-  systems = [ system1 ];
+  user = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGgosVEivuizfByPTS8O/4CIX2+1P2HwDN1/7u3Ottrd";
+  system = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGg8BX54c5bJiIonkkvBqB9w4iB3ZZCmnISqvrbFA5rd";
+  agenixFiles = [
+    "docmostEnv.age"
+    "porkbunApiKey.age"
+    "porkbunSecretApiKey.age"
+    "ddnsUpdaterConfig.age"
+    "homarrEnv.age"
+    "invidiousBasicAuth.age"
+    "invidiousExtraSettings.age"
+    "wgKey.age"
+    "nextcloudPass.age"
+    "invidiousEnv.age"
+    "invidiousPgPass.age"
+    "searxngEnv.age"
+    "searxngBasicAuth.age"
+    "matrixSharedSecret.age"
+  ];
 in
-{
-  "docmostEnv.age".publicKeys = [ user1 system1 ];
-  "porkbunApiKey.age".publicKeys = [ user1 system1 ];
-  "porkbunSecretApiKey.age".publicKeys = [ user1 system1 ];
-  "ddnsUpdaterConfig.age".publicKeys = [ user1 system1 ];
-  "homarrEnv.age".publicKeys = [ user1 system1 ];
-  "invidiousBasicAuth.age".publicKeys = [ user1 system1 ];
-  "invidiousExtraSettings.age".publicKeys = [ user1 system1 ];
-  "wgKey.age".publicKeys = [ user1 system1 ];
-  "nextcloudPass.age".publicKeys = [ user1 system1 ];
-  "invidiousEnv.age".publicKeys = [ user1 system1 ];
-  "invidiousPgPass.age".publicKeys = [ user1 system1 ];
-  "searxngEnv.age".publicKeys = [ user1 system1 ];
-  "searxngBasicAuth.age".publicKeys = [ user1 system1 ];
-  "matrixSharedSecret.age".publicKeys = [ user1 system1 ];
-}
+  builtins.listToAttrs (
+    map (file:
+      {name = file; value = {
+        publicKeys = [ user system ];
+      };}
+    ) agenixFiles
+  )
