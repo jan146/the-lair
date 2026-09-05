@@ -5,7 +5,6 @@ in
 {
   security.acme = {
     certs."${config.domainName}" = {
-      extraDomainNames = [ "mumble.${config.domainName}" ];
       reloadServices = [ "murmur" ];
       postRun = ''
         # set permission on dir
