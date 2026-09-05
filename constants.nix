@@ -20,7 +20,7 @@
   config = rec {
     username = "jan";
     hostname = "venice";
-    domainName = "kmet.dev";
+    domainName = "brlog.dev";
     hddDir = "/mnt/hdd";
     mediaDir = "${hddDir}/media";
   };
