@@ -16,6 +16,7 @@ let
     "searxngEnv.age"
     "searxngBasicAuth.age"
     "matrixSharedSecret.age"
+    "borgPass.age"
   ];
 in
   builtins.listToAttrs (

@@ -43,6 +43,7 @@
       ./nextcloud.nix
       ./searxng.nix
       ./matrix.nix
+      ./borg.nix
     ];
 
   # Use latest kernel
