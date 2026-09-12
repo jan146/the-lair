@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 let
   defaultConfig = {
     extraArgs = [ "--remote-path=borg-1.4" ];
@@ -15,6 +15,7 @@ let
   borgUser = "u663774";
   borgHost = "falkenstein.${config.domainName}:23";
   makeRepoUrl = jobName: "ssh://${borgUser}@${borgHost}/./backups/${config.hostname}-${jobName}";
+  jobsList = lib.attrsets.mapAttrsToList (name: value: "borgbackup-job-${name}") config.services.borgbackup.jobs;
 in
 {
   age.secrets.borgPass = {
@@ -53,4 +54,22 @@ in
   #     DEFAULT_BBR = yes; # use it by default
   #   };
   # }];
+  systemd.services = (
+    builtins.listToAttrs (
+      map (jobName:
+        {name = jobName; value = {
+          serviceConfig = {
+            # https://github.com/borgbackup/borg/issues/6622#issuecomment-1102701735
+            RestartPreventExitStatus = 2;
+            Restart = "on-failure";
+            RestartSec = 30;
+          };
+          unitConfig = {
+            StartLimitInterval = 200;
+            StartLimitBurst = 5;
+          };
+        };}
+      ) jobsList
+    )
+  );
 }
