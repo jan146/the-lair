@@ -28,7 +28,7 @@ in
   # Create necessary directories
   systemd.tmpfiles.rules = createMediaDirs (
     map (subdir: "${config.mediaDir}/${subdir}") [
-      "" "books" "downloads" "dvr" "movies" "music" "other" "tv"
+      "" "books" "downloads" "dvr" "movies" "music" "other" "tv" "photos"
     ] ++ [
     jellyfinDir
     sonarrDir
