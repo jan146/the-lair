@@ -80,6 +80,21 @@
         "type": "github"
       }
     },
+    "multiverse": {
+      "locked": {
+        "lastModified": 1789387926,
+        "narHash": "sha256-oJd9l94KPeUku/f+2DjjWi6EipLNiqyXUadi/gd0WoY=",
+        "owner": "fzakaria",
+        "repo": "nixpkgs-multiverse",
+        "rev": "2643af47bc0839299800c5c1c99e5ade99a5f3fd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fzakaria",
+        "repo": "nixpkgs-multiverse",
+        "type": "github"
+      }
+    },
     "nix-index-database": {
       "inputs": {
         "nixpkgs": [
@@ -153,6 +168,7 @@
         "agenix": "agenix",
         "dotfiles": "dotfiles",
         "hjem": "hjem",
+        "multiverse": "multiverse",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
         "nvim": "nvim",

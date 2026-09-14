@@ -2,7 +2,11 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
+let
+  mv = inputs.multiverse.multiverse.x86_64-linux;
+  pkgs_unstable = mv.tip;
+in
 {
   imports =
     [
@@ -59,6 +63,7 @@
     btop
     pwgen
     killall
+    pkgs_unstable.diskonaut-ng
   ];
 
   # Enable flakes

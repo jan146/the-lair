@@ -28,8 +28,9 @@
       # optionally choose not to download darwin deps (saves some resources on Linux)
       inputs.darwin.follows = "";
     };
+    multiverse.url = "github:fzakaria/nixpkgs-multiverse";
   };
-  outputs = inputs@{ self, nixpkgs, hjem, nix-index-database, agenix, ... }: {
+  outputs = inputs@{ self, nixpkgs, hjem, nix-index-database, agenix, multiverse, ... }: {
     nixosConfigurations.venice = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
