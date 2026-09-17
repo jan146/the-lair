@@ -44,6 +44,11 @@ in
       paths = "${config.hddDir}/./postgres";
       repo = makeRepoUrl "postgres";
     };
+    vaultwarden = defaultConfig // {
+      paths = "${config.hddDir}/./vaultwarden";
+      repo = makeRepoUrl "vaultwarden";
+      exclude = [ "*/icon_cache" "*/tmp" ];
+    };
   };
   # https://gist.github.com/Zaczero/59055969dc71fda0548ca7da5acb18df
   # boot.kernelPatches = [{

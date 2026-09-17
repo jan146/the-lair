@@ -48,6 +48,7 @@ in
       ./searxng.nix
       ./matrix.nix
       ./borg.nix
+      ./vaultwarden.nix
     ];
 
   # Use latest kernel
