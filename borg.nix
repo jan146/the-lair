@@ -49,6 +49,10 @@ in
       repo = makeRepoUrl "vaultwarden";
       exclude = [ "*/icon_cache" "*/tmp" ];
     };
+    forgejo = defaultConfig // {
+      paths = "${config.hddDir}/./forgejo";
+      repo = makeRepoUrl "forgejo";
+    };
   };
   # https://gist.github.com/Zaczero/59055969dc71fda0548ca7da5acb18df
   # boot.kernelPatches = [{

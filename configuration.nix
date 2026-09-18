@@ -49,6 +49,7 @@ in
       ./matrix.nix
       ./borg.nix
       ./vaultwarden.nix
+      ./forgejo.nix
     ];
 
   # Use latest kernel
