@@ -65,6 +65,7 @@ in
     pwgen
     killall
     pkgs_unstable.diskonaut-ng
+    file
   ];
 
   # Enable flakes
