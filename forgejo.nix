@@ -19,6 +19,7 @@ in
         SSH_PORT = 2222;
         START_SSH_SERVER = true;
       };
+      repository.DEFAULT_BRANCH = "master";
       # You can temporarily allow registration to create an admin user.
       service.DISABLE_REGISTRATION = true;
     };
