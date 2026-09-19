@@ -18,6 +18,7 @@ let
     "matrixSharedSecret.age"
     "borgPass.age"
     "vaultwardenEnv.age"
+    "suwayomiPass.age"
   ];
 in
   builtins.listToAttrs (

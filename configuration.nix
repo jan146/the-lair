@@ -50,6 +50,7 @@ in
       ./borg.nix
       ./vaultwarden.nix
       ./forgejo.nix
+      ./suwayomi.nix
     ];
 
   # Use latest kernel

@@ -53,6 +53,10 @@ in
       paths = "${config.hddDir}/./forgejo";
       repo = makeRepoUrl "forgejo";
     };
+    suwayomi = defaultConfig // {
+      paths = "${config.hddDir}/./suwayomi";
+      repo = makeRepoUrl "suwayomi";
+    };
   };
   # https://gist.github.com/Zaczero/59055969dc71fda0548ca7da5acb18df
   # boot.kernelPatches = [{
