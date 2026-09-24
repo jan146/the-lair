@@ -29,18 +29,20 @@
       inputs.darwin.follows = "";
     };
     multiverse.url = "github:fzakaria/nixpkgs-multiverse";
+    quadlet-nix.url = "github:SEIAROTg/quadlet-nix";
   };
-  outputs = inputs@{ self, nixpkgs, hjem, nix-index-database, agenix, multiverse, ... }: {
+  outputs = inputs@{ self, nixpkgs, hjem, nix-index-database, agenix, multiverse, quadlet-nix, ... }: {
     nixosConfigurations.venice = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
-        inputs.hjem.nixosModules.default
+        hjem.nixosModules.default
         nix-index-database.nixosModules.default
         # optional to also wrap and install comma
         # { programs.nix-index-database.comma.enable = true; }
         agenix.nixosModules.default
+        quadlet-nix.nixosModules.quadlet
       ];
     };
   };

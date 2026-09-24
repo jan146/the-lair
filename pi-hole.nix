@@ -1,6 +1,9 @@
-{ config, ... }:
+{ config, lib, ... }:
 let
   withBlocklist = import ./nginx-blocklist.nix;
+  interfaceLan = config.networking.defaultGateway.interface;
+  interfaceWg = "wg0";
+  interfaces = lib.strings.join "," [ interfaceLan interfaceWg ];
 in
 {
   services = {
@@ -26,9 +29,10 @@ in
         # misc.readOnly = false;
         dns = {
           domainNeeded = true;
-          interface = config.networking.defaultGateway.interface;
           upstreams = ["9.9.9.9" "1.1.1.1" "8.8.8.8"];
           queryLogging = false;
+          listeningMode = "BIND";
+          interface = interfaces;
         };
         misc.privacylevel = 3;
         webserver = {

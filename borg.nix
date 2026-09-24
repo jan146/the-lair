@@ -57,6 +57,10 @@ in
       paths = "${config.hddDir}/./suwayomi";
       repo = makeRepoUrl "suwayomi";
     };
+    docmost = defaultConfig // {
+      paths = "/var/lib/docmost/.local/share/containers/storage/./volumes";
+      repo = makeRepoUrl "docmost";
+    };
   };
   # https://gist.github.com/Zaczero/59055969dc71fda0548ca7da5acb18df
   # boot.kernelPatches = [{
