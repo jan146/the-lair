@@ -3,7 +3,7 @@ let
   defaultConfig = {
     extraArgs = [ "--remote-path=borg-1.4" ];
     extraCreateArgs = [ "--stats" ];
-    startAt = "*-*-* 01:00:00";
+    startAt = "*-*-* 16:00:00";
     encryption = {
       mode = "repokey";
       passCommand = "cat ${config.age.secrets.borgPass.path}";
