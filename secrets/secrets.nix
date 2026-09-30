@@ -19,6 +19,7 @@ let
     "borgPass.age"
     "vaultwardenEnv.age"
     "suwayomiPass.age"
+    "freellmapiEnv.age"
   ];
 in
   builtins.listToAttrs (

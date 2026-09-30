@@ -57,9 +57,12 @@ in
       paths = "${config.hddDir}/./suwayomi";
       repo = makeRepoUrl "suwayomi";
     };
-    docmost = defaultConfig // {
-      paths = "/var/lib/docmost/.local/share/containers/storage/./volumes";
-      repo = makeRepoUrl "docmost";
+    userContainers = defaultConfig // {
+      paths = [
+        "/var/lib/./docmost/.local/share/containers/storage/volumes"
+        # "/var/lib/./freellmapi/.local/share/containers/storage/volumes"
+      ];
+      repo = makeRepoUrl "userContainers";
     };
   };
   # https://gist.github.com/Zaczero/59055969dc71fda0548ca7da5acb18df

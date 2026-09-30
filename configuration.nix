@@ -51,6 +51,7 @@ in
       ./vaultwarden.nix
       ./forgejo.nix
       ./suwayomi.nix
+      # ./freellmapi.nix
     ];
 
   # Use latest kernel
