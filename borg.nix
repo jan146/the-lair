@@ -61,6 +61,7 @@ in
       paths = [
         "/var/lib/./docmost/.local/share/containers/storage/volumes"
         # "/var/lib/./freellmapi/.local/share/containers/storage/volumes"
+        "/var/lib/./dailytxt/.local/share/containers/storage/volumes"
       ];
       repo = makeRepoUrl "userContainers";
     };

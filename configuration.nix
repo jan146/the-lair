@@ -52,6 +52,7 @@ in
       ./forgejo.nix
       ./suwayomi.nix
       # ./freellmapi.nix
+      ./dailytxt.nix
     ];
 
   # Use latest kernel

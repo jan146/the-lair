@@ -20,6 +20,7 @@ let
     "vaultwardenEnv.age"
     "suwayomiPass.age"
     "freellmapiEnv.age"
+    "dailytxtEnv.age"
   ];
 in
   builtins.listToAttrs (
