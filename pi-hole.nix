@@ -24,6 +24,12 @@ in
           enabled = true;
           description = "zachlagden's optimized blocklist";
         }
+        {
+          url = "https://raw.githubusercontent.com/furkan-bayrak/lg-tv-blocklist/main/lists/safe-domains.txt";
+          type = "block";
+          enabled = true;
+          description = "LG tv blocklist, safe version (shouldn't break apps)";
+        }
       ];
       settings = {
         # misc.readOnly = false;
