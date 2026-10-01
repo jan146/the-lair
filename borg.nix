@@ -26,7 +26,7 @@ in
       paths = "${config.mediaDir}/./";
       repo = makeRepoUrl "media";
       compression = "none";
-      exclude = [ "*/cache" "*/.cache" ];
+      exclude = [ "*/tv" "*/cache" "*/.cache" ];
     };
     nextcloud = defaultConfig // {
       paths = "${config.hddDir}/./nextcloud";
