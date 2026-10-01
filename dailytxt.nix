@@ -27,7 +27,7 @@ in
     dailytxt = {
       image = "phitux/dailytxt:2.6.3";
       environment = {
-        ALLOW_REGISTRATION = "true";
+        ALLOW_REGISTRATION = "false";
         LOGOUT_AFTER_DAYS = "1";
       };
       environmentFiles = [
