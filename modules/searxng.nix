@@ -39,12 +39,12 @@ let
 in
 {
   age.secrets.searxngEnv = {
-    file = ./secrets/searxngEnv.age;
+    file = ../secrets/searxngEnv.age;
     owner = "root";
     group = "root";
   };
   age.secrets.searxngBasicAuth = {
-    file = ./secrets/searxngBasicAuth.age;
+    file = ../secrets/searxngBasicAuth.age;
     owner = config.services.nginx.user;
     group = config.services.nginx.group;
   };

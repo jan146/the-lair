@@ -4,7 +4,7 @@ let
 in
 {
   age.secrets.homarrEnv = {
-    file = ./secrets/homarrEnv.age;
+    file = ../secrets/homarrEnv.age;
     owner = config.username;
     group = "users";
   };

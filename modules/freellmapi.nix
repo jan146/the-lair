@@ -4,7 +4,7 @@ let
 in
 {
   age.secrets.freellmapiEnv = {
-    file = ./secrets/freellmapiEnv.age;
+    file = ../secrets/freellmapiEnv.age;
     owner = "freellmapi";
     group = "freellmapi";
   };

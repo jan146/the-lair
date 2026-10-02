@@ -2,7 +2,7 @@
 {
   # Lowercase filename because ddns-updater converts to lowercase for some reason ...
   age.secrets.ddnsupdaterconfig = {
-    file = ./secrets/ddnsUpdaterConfig.age;
+    file = ../secrets/ddnsUpdaterConfig.age;
     owner = "root";
     group = "root";
   };

@@ -5,7 +5,7 @@ let
 in
 {
   age.secrets.suwayomiPass = {
-    file = ./secrets/suwayomiPass.age;
+    file = ../secrets/suwayomiPass.age;
     owner = config.services.suwayomi-server.user;
     group = config.services.suwayomi-server.group;
   };

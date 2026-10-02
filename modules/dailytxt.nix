@@ -4,7 +4,7 @@ let
 in
 {
   age.secrets.dailytxtEnv = {
-    file = ./secrets/dailytxtEnv.age;
+    file = ../secrets/dailytxtEnv.age;
     owner = "dailytxt";
     group = "dailytxt";
   };

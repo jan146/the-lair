@@ -10,7 +10,7 @@ let
 in
 {
   age.secrets.docmostEnv = {
-    file = ./secrets/docmostEnv.age;
+    file = ../secrets/docmostEnv.age;
     owner = "docmost";
     group = "docmost";
   };

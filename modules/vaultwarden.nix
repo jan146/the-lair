@@ -4,7 +4,7 @@ let
 in
 {
   age.secrets.vaultwardenEnv = {
-    file = ./secrets/vaultwardenEnv.age;
+    file = ../secrets/vaultwardenEnv.age;
   };
   services.vaultwarden = {
     enable = true;

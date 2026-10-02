@@ -8,7 +8,7 @@
   };
 
   age.secrets.wgPrivKey = {
-    file = ./secrets/wgKey.age;
+    file = ../secrets/wgKey.age;
     owner = "root";
     group = "root";
   };

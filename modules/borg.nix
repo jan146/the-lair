@@ -19,7 +19,7 @@ let
 in
 {
   age.secrets.borgPass = {
-    file = ./secrets/borgPass.age;
+    file = ../secrets/borgPass.age;
   };
   services.borgbackup.jobs = {
     media = defaultConfig // {

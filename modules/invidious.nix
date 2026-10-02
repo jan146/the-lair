@@ -5,22 +5,22 @@ let
 in
 {
   age.secrets.basicAuth = {
-    file = ./secrets/invidiousBasicAuth.age;
+    file = ../secrets/invidiousBasicAuth.age;
     owner = config.services.nginx.user;
     group = config.services.nginx.group;
   };
   age.secrets.invidiousPgPass = {
-    file = ./secrets/invidiousPgPass.age;
+    file = ../secrets/invidiousPgPass.age;
     owner = "invidious";
     group = "invidious";
   };
   age.secrets.invidiousEnv = {
-    file = ./secrets/invidiousEnv.age;
+    file = ../secrets/invidiousEnv.age;
     owner = "invidious";
     group = "invidious";
   };
   age.secrets.invidiousExtraSettings = {
-    file = ./secrets/invidiousExtraSettings.age;
+    file = ../secrets/invidiousExtraSettings.age;
     owner = "invidious";
     group = "invidious";
   };

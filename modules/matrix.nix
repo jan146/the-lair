@@ -35,7 +35,7 @@ in
   };
 
   age.secrets.matrixSharedSecret = {
-    file = ./secrets/matrixSharedSecret.age;
+    file = ../secrets/matrixSharedSecret.age;
     owner = "matrix-synapse";
     group = "matrix-synapse";
   };

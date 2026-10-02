@@ -31,19 +31,25 @@
     multiverse.url = "github:fzakaria/nixpkgs-multiverse";
     quadlet-nix.url = "github:SEIAROTg/quadlet-nix";
   };
-  outputs = inputs@{ self, nixpkgs, hjem, nix-index-database, agenix, multiverse, quadlet-nix, ... }: {
-    nixosConfigurations.venice = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
-      modules = [
-        ./configuration.nix
-        hjem.nixosModules.default
-        nix-index-database.nixosModules.default
-        # optional to also wrap and install comma
-        # { programs.nix-index-database.comma.enable = true; }
-        agenix.nixosModules.default
-        quadlet-nix.nixosModules.quadlet
-      ];
+  outputs = inputs@{ self, nixpkgs, hjem, nix-index-database, agenix, multiverse, quadlet-nix, ... }:
+    let
+      mkHost = hostName: nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/${hostName}/configuration.nix
+          hjem.nixosModules.default
+          nix-index-database.nixosModules.default
+          # optional to also wrap and install comma
+          # { programs.nix-index-database.comma.enable = true; }
+          agenix.nixosModules.default
+          quadlet-nix.nixosModules.quadlet
+        ];
+      };
+    in
+    {
+    nixosConfigurations = {
+      venice = mkHost "venice";
     };
   };
 }

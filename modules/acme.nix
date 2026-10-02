@@ -5,12 +5,12 @@ in
 {
   age.secrets = {
     porkbunApiKey = {
-      file = ./secrets/porkbunApiKey.age;
+      file = ../secrets/porkbunApiKey.age;
       owner = config.username;
       group = "users";
     };
     porkbunSecretApiKey = {
-      file = ./secrets/porkbunSecretApiKey.age;
+      file = ../secrets/porkbunSecretApiKey.age;
       owner = config.username;
       group = "users";
     };

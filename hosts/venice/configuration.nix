@@ -13,46 +13,46 @@ in
       ./hardware-configuration.nix
       ./constants.nix
       ./bootloader.nix
-      ./users-and-groups.nix
-      ./networking.nix
-      ./audio.nix
-      ./locale.nix
       ./desktop.nix
-      ./openssh.nix
-      ./ddns-updater.nix
-      ./agenix.nix
-      ./sudo.nix
-      ./git.nix
-      ./zsh.nix
-      ./tmux.nix
-      ./vim.nix
-      ./neovim.nix
-      ./podman.nix
-      ./kitty.nix
-      ./hjem.nix
-      ./acme.nix
-      ./nginx.nix
-      ./murmur.nix
-      ./docmost.nix
-      ./media-server.nix
-      ./qbittorrent.nix
-      ./homarr.nix
-      ./fmhy.nix
-      ./navidrome.nix
-      ./invidious.nix
-      ./feishin.nix
-      ./wireguard.nix
-      ./pi-hole.nix
-      ./postgres.nix
-      ./nextcloud.nix
-      ./searxng.nix
-      ./matrix.nix
-      ./borg.nix
-      ./vaultwarden.nix
-      ./forgejo.nix
-      ./suwayomi.nix
-      # ./freellmapi.nix
-      ./dailytxt.nix
+      ../../modules/users-and-groups.nix
+      ../../modules/networking.nix
+      ../../modules/audio.nix
+      ../../modules/locale.nix
+      ../../modules/openssh.nix
+      ../../modules/ddns-updater.nix
+      ../../modules/agenix.nix
+      ../../modules/sudo.nix
+      ../../modules/git.nix
+      ../../modules/zsh.nix
+      ../../modules/tmux.nix
+      ../../modules/vim.nix
+      ../../modules/neovim.nix
+      ../../modules/podman.nix
+      ../../modules/kitty.nix
+      ../../modules/hjem.nix
+      ../../modules/acme.nix
+      ../../modules/nginx.nix
+      ../../modules/murmur.nix
+      ../../modules/docmost.nix
+      ../../modules/media-server.nix
+      ../../modules/qbittorrent.nix
+      ../../modules/homarr.nix
+      ../../modules/fmhy.nix
+      ../../modules/navidrome.nix
+      ../../modules/invidious.nix
+      ../../modules/feishin.nix
+      ../../modules/wireguard.nix
+      ../../modules/pi-hole.nix
+      ../../modules/postgres.nix
+      ../../modules/nextcloud.nix
+      ../../modules/searxng.nix
+      ../../modules/matrix.nix
+      ../../modules/borg.nix
+      ../../modules/vaultwarden.nix
+      ../../modules/forgejo.nix
+      ../../modules/suwayomi.nix
+      # ../../modules/freellmapi.nix
+      ../../modules/dailytxt.nix
     ];
 
   # Use latest kernel
