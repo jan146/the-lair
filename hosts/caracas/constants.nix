@@ -1,0 +1,31 @@
+{ lib, ... }:
+{
+  options = with lib; {
+    username = mkOption {
+      type = types.str;
+    };
+    hostname = mkOption {
+      type = types.str;
+    };
+    domainName = mkOption {
+      type = types.str;
+    };
+    hddDir = mkOption {
+      type = types.str;
+    };
+    mediaDir = mkOption {
+      type = types.str;
+    };
+    ipv4Address = mkOption {
+      type = types.str;
+    };
+  };
+  config = rec {
+    username = "jan";
+    hostname = "caracas";
+    domainName = "brlog.dev";
+    hddDir = "/mnt/hdd";
+    mediaDir = "${hddDir}/media";
+    ipv4Address = "192.168.0.237";
+  };
+}
