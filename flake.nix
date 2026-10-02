@@ -50,6 +50,7 @@
     {
     nixosConfigurations = {
       venice = mkHost "venice";
+      caracas = mkHost "caracas";
     };
   };
 }
