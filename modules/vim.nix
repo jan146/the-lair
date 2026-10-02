@@ -1,4 +1,4 @@
-{ config, pkgs, hjem, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 {
   programs.vim.enable = true;
   programs.vim.defaultEditor = true;

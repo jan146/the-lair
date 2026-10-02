@@ -1,4 +1,4 @@
-{ config, pkgs, hjem, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 let
   dotfileSymlinks = {
     # ".zshrc".source = inputs.dotfiles + "/.zshrc";

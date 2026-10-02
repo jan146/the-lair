@@ -1,4 +1,4 @@
-{ config, pkgs, hjem, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 let
   homeDir = config.users.users."${config.username}".home;
 in
