@@ -6,7 +6,7 @@
 {
   imports =
     [
-      # ./hardware-configuration.nix
+      ./hardware-configuration.nix
       ./constants.nix
       ./bootloader.nix
       ./desktop.nix
