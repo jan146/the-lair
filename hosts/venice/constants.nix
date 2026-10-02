@@ -16,6 +16,9 @@
     mediaDir = mkOption {
       type = types.str;
     };
+    ipv4Address = mkOption {
+      type = types.str;
+    };
   };
   config = rec {
     username = "jan";
@@ -23,5 +26,6 @@
     domainName = "brlog.dev";
     hddDir = "/mnt/hdd";
     mediaDir = "${hddDir}/media";
+    ipv4Address = "192.168.0.238";
   };
 }
