@@ -27,6 +27,7 @@ in
       ../../modules/tmux.nix
       ../../modules/vim.nix
       ../../modules/neovim.nix
+      ../../modules/general.nix
       ../../modules/podman.nix
       ../../modules/kitty.nix
       ../../modules/hjem.nix
@@ -60,17 +61,6 @@ in
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  environment.systemPackages = with pkgs; [
-    fastfetch
-    tree
-    htop
-    btop
-    pwgen
-    killall
-    pkgs_unstable.diskonaut-ng
-    file
-  ];
 
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
