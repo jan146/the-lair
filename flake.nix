@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     hjem = {
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,9 +32,9 @@
     multiverse.url = "github:fzakaria/nixpkgs-multiverse";
     quadlet-nix.url = "github:SEIAROTg/quadlet-nix";
   };
-  outputs = inputs@{ self, nixpkgs, hjem, nix-index-database, agenix, multiverse, quadlet-nix, ... }:
+  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, hjem, nix-index-database, agenix, multiverse, quadlet-nix, ... }:
     let
-      mkHost = hostName: nixpkgs.lib.nixosSystem {
+      mkHost = hostName: nixpkgs: nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
@@ -49,8 +50,8 @@
     in
     {
     nixosConfigurations = {
-      venice = mkHost "venice";
-      caracas = mkHost "caracas";
+      venice = mkHost "venice" nixpkgs;
+      caracas = mkHost "caracas" nixpkgs-unstable;
     };
   };
 }
