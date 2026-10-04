@@ -10,6 +10,7 @@ in
 	nodejs
 	python3
 	cargo # For nil language server
+    gcc # Also for nil
   ];
   hjem.users.${config.username}.files = {
     ".config/nvim".source = inputs.nvim;
