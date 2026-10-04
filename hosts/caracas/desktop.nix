@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
@@ -13,4 +13,9 @@
 
   # Install firefox.
   programs.firefox.enable = true;
+
+  # Install jellyfin
+  environment.systemPackages = [
+    pkgs.jellyfin-desktop
+  ];
 }
