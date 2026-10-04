@@ -14,8 +14,9 @@
   # Install firefox.
   programs.firefox.enable = true;
 
-  # Install jellyfin
+  # Install jellyfin & vacuumtube
   environment.systemPackages = [
     pkgs.jellyfin-desktop
+    pkgs.vacuum-tube
   ];
 }
