@@ -11,6 +11,7 @@
       ./bootloader.nix
       ./desktop.nix
       ../../modules/nvidia.nix
+      ../../modules/bluetooth.nix
       ../../modules/users-and-groups.nix
       ../../modules/networking.nix
       ../../modules/audio.nix
