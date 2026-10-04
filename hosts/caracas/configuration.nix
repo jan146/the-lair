@@ -10,6 +10,7 @@
       ./constants.nix
       ./bootloader.nix
       ./desktop.nix
+      ./nvidia.nix
       ../../modules/users-and-groups.nix
       ../../modules/networking.nix
       ../../modules/audio.nix
