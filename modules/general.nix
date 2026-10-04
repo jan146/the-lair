@@ -13,5 +13,7 @@ in
     killall
     pkgs_unstable.diskonaut-ng
     file
+    pciutils
+    usbutils
   ];
 }
