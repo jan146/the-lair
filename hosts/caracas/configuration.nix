@@ -26,6 +26,7 @@
       ../../modules/podman.nix
       ../../modules/kitty.nix
       ../../modules/hjem.nix
+      ../../modules/plasma-bigscreen.nix
     ];
 
   # Use latest kernel
