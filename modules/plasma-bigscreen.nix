@@ -1,6 +1,5 @@
-{ config, inputs, pkgs, ... }:
+{ config, pkgs, ... }:
 let
-  # mv = inputs.multiverse.multiverse.x86_64-linux;
   # https://discourse.nixos.org/t/getting-kde-plasma-bigscreen-to-work-on-nixos/79086
   overlayPlasmaBigscreen = (final: prev: {
     kdePackages = prev.kdePackages // {

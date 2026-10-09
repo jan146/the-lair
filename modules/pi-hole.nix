@@ -4,8 +4,16 @@ let
   interfaceLan = config.networking.defaultGateway.interface;
   interfaceWg = "wg0";
   interfaces = lib.strings.join "," [ interfaceLan interfaceWg ];
+  overlayPiholeFtl = final: prev: {
+    pihole-ftl = prev.pihole-ftl.overrideAttrs (old: {
+      env = (old.env or {}) // {
+        NIX_CFLAGS_COMPILE = "${old.env.NIX_CFLAGS_COMPILE or ""} -Wno-error=unused-but-set-variable";
+      };
+    });
+  };
 in
 {
+  nixpkgs.overlays = [ overlayPiholeFtl ];
   services = {
     pihole-ftl = {
       enable = true;

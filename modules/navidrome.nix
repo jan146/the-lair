@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
+{ config, inputs, ... }:
 let
   withBlocklist = import ./nginx-blocklist.nix;
+  mv = inputs.multiverse.multiverse.x86_64-linux;
+  pkgs_26_05 = mv.at "26.05";
 in
 {
   services.navidrome = {
@@ -10,7 +12,7 @@ in
       MusicFolder = "${config.mediaDir}/music";
       Address = "0.0.0.0";
     };
-    plugins = [ pkgs.navidromePlugins.discord-rich-presence ];
+    plugins = [ pkgs_26_05.navidromePlugins.discord-rich-presence ];
   };
   systemd.services.navidrome.serviceConfig.Environment = "ND_BASEURL=https://navidrome.${config.domainName}";
   services.nginx = {

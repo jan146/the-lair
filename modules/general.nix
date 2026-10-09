@@ -1,8 +1,4 @@
-{ pkgs, inputs, ... }:
-let
-  mv = inputs.multiverse.multiverse.x86_64-linux;
-  pkgs_unstable = mv.tip;
-in
+{ pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
     fastfetch
@@ -11,7 +7,7 @@ in
     btop
     pwgen
     killall
-    pkgs_unstable.diskonaut-ng
+    diskonaut-ng
     file
     pciutils
     usbutils
