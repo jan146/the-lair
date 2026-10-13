@@ -50,6 +50,7 @@
       ../../modules/suwayomi.nix
       # ../../modules/freellmapi.nix
       ../../modules/dailytxt.nix
+      ../../modules/borg-ui.nix
     ];
 
   # Use latest kernel
