@@ -35,6 +35,7 @@ in
     containers = defaultConfig // {
       paths = "/var/lib/containers/storage/./volumes";
       repo = makeRepoUrl "containers";
+      exclude = [ "*/borg_cache" "*/companioncache" ];
     };
     matrix = defaultConfig // {
       paths = "${config.hddDir}/./matrix-synapse";
