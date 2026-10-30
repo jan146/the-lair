@@ -25,8 +25,6 @@
       url = "github:ryantm/agenix";
       # optional, not necessary for the module
       inputs.nixpkgs.follows = "nixpkgs";
-      # optionally choose not to download darwin deps (saves some resources on Linux)
-      inputs.darwin.follows = "";
     };
     multiverse.url = "github:fzakaria/nixpkgs-multiverse";
     quadlet-nix.url = "github:SEIAROTg/quadlet-nix";

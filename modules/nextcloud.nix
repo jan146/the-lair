@@ -19,8 +19,9 @@ in
     database.createLocally = true;
     datadir = dataDir;
     config = {
-      adminuser = "admin";
-      adminpassFile = config.age.secrets.adminPass.path;
+      # To create an admin user after the installation, use nextcloud-occ user:add <username> and nextcloud-occ group:adduser admin <username>.
+      # adminuser = "admin";
+      # adminpassFile = config.age.secrets.adminPass.path;
       dbtype = "sqlite";
       # dbtype = "pgsql";
       # dbname = "nextcloud";
