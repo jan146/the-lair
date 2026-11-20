@@ -1,4 +1,8 @@
-{ config, ... }:
+{ config, pkgs, ... }:
+let
+    useStable = (builtins.compareVersions pkgs.nginxStable.version "1.31.9") >= 0;
+    package = if useStable then pkgs.nginxStable else pkgs.nginxMainline;
+in
 {
   services.nginx = {
     enable = true;
@@ -11,6 +15,7 @@
           ~*(ChatGPT|OpenAI|Anthropic|DeepSeek|xAI|x\.ai|perplexity\.ai) 1;
       }
     '';
+    inherit package;
   };
   networking.firewall.allowedTCPPorts = [ 80 443 ];
   networking.firewall.allowedUDPPorts = [ 80 443 ];
